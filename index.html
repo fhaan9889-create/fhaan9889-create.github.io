@@ -1,25 +1,639 @@
-GitHub-ல் உங்கள் வெப்சைட்டை வெளியிடுவது எப்படி?
-வணக்கம்! இந்த வழிகாட்டி மூலம், உங்களுக்குக் கொடுக்கப்பட்ட index.html கோடைப் பயன்படுத்தி, GitHub Pages-ல் உங்கள் வெப்சைட்டை இலவசமாக வெளியிடுவது எப்படி என்று பார்க்கலாம்.
-படிப்படியான வழிமுறைகள் (Step-by-Step):
-படி 1: GitHub கணக்கு
- * உங்களுக்கு GitHub (www.github.com) கணக்கு இல்லையென்றால், புதிதாக ஒன்றை உருவாக்கிக்கொள்ளுங்கள்.
-படி 2: புதிய Repository-ஐ உருவாக்குதல்
- * GitHub-ல் லாகின் செய்த பிறகு, உங்கள் முகப்புப் பக்கத்தில் (homepage) New என்ற பச்சை நிற பட்டனை கிளிக் செய்யவும் (அல்லது மேல் வலது மூலையில் உள்ள + ஐகானை கிளிக் செய்து New repository என்பதைத் தேர்ந்தெடுக்கவும்).
- * முக்கியமான படி: Repository name (களஞ்சியத்தின் பெயர்) என்பதற்கு, பின்வருமாறு சரியாக டைப் செய்யவும்:
-   your-username.github.io
-   * (இங்கே your-username என்பதற்குப் பதிலாக உங்கள் உண்மையான GitHub யூசர்நேமைப் பயன்படுத்தவும். உதாரணம்: உங்கள் யூசர்நேம் actingdriver என்றால், actingdriver.github.io என்று பெயரிட வேண்டும்).
- * Public என்பதைத் தேர்ந்தெடுத்து, Create repository பட்டனை கிளிக் செய்யவும்.
-படி 3: index.html பைலை உருவாக்குதல்
- * உங்கள் புதிய repository-ஐ உருவாக்கியதும், அந்தப் பக்கத்தில் Add file என்பதைக் கிளிக் செய்து, பின்னர் Create new file என்பதைத் தேர்ந்தெடுக்கவும்.
- * பைலின் பெயருக்கான கட்டத்தில் (name your file...), index.html என டைப் செய்யவும். (இது மிகவும் முக்கியம், பெயர் சரியாக index.html என்று இருக்க வேண்டும்).
- * அதற்குக் கீழே உள்ள பெரிய டெக்ஸ்ட் பாக்ஸில் (text box), நான் உங்களுக்கு வழங்கிய index.html பைலில் உள்ள முழு கோடையும் (<!DOCTYPE html> என்பதில் தொடங்கி </html> என முடியும் வரை) காப்பி (Copy) செய்து, இங்கே பேஸ்ட் (Paste) செய்யவும்.
-படி 4: பைலை சேமித்தல் (Commit)
- * கோடை பேஸ்ட் செய்த பிறகு, பக்கத்தின் கீழே Commit new file என்ற தலைப்பு இருக்கும்.
- * அங்குள்ள பச்சை நிற Commit new file பட்டனை கிளிக் செய்யவும். இது உங்கள் பைலை சேமிக்கும்.
-படி 5: உங்கள் வெப்சைட்டைப் பாருங்கள்!
-அவ்வளவுதான்! உங்கள் வெப்சைட் இப்போது ஆன்லைனில் உள்ளது.
-சரியாக 5 முதல் 10 நிமிடங்கள் வரை காத்திருக்கவும். அதன் பிறகு, உங்கள் பிரவுசரில் (Browser) https://your-username.github.io என்று டைப் செய்து சென்றால் (உதாரணம்: https://actingdriver.github.io), உங்கள் புதிய வெப்சைட்டை நீங்கள் பார்க்கலாம்!
-அடுத்தகட்ட நடவடிக்கைகள்:
- * வீடியோக்களை மாற்றுதல்: index.html கோடில், உங்கள் சொந்த YouTube வீடியோக்களின் "embed" லிங்கை மாற்ற மறவாதீர்கள்.
- * படங்களை மாற்றுதல்: "காட்சிகள்" (Gallery) பகுதியில், உங்கள் சொந்த படங்களுக்கான URL-களைப் பயன்படுத்தவும்.
- * இணைப்புகளை மாற்றுதல் (Links): உங்கள் Facebook, Instagram மற்றும் Google My Business இணைப்புகளைச் சரியாக அப்டேட் செய்யவும்.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acting Driver Life | உங்கள் பயணம், என் பொறுப்பு</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom Google Fonts - Modern, Clean & Bold */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d1a;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section Background Style */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.ibb.co/BKy99v8R/Gemini-Generated-Image-tv7kr9tv7kr9tv7k.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Services Section Background Style */
+        .services-bg {
+            background-image: linear-gradient(rgba(10, 20, 30, 0.8), rgba(10, 20, 30, 0.8)), url('https://i.ibb.co/5hymnQww/Gemini-Generated-Image-gr0gaagr0gaagr0g.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Contact Section Background Style */
+        .contact-bg {
+            background-image: linear-gradient(rgba(15, 10, 30, 0.85), rgba(15, 10, 30, 0.85)), url('https://i.ibb.co/RkpdWXVv/Gemini-Generated-Image-xwag8kxwag8kxwag.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Custom animation for on-scroll reveal (for modern look) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Style for the AI generated output area */
+        #ai-output {
+            min-height: 150px;
+            white-space: pre-wrap;
+            background-color: #1a1a2e;
+            color: #d1d5db;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        /* Styles for the loading spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none; /* Hidden by default */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Custom styles for the responsive navigation bar */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-[#0d0d1a]">
+
+    <!-- JavaScript for Firebase and Gemini API calls -->
+    <script>
+        // API Model constant
+        const GEMINI_MODEL = "gemini-2.5-flash-preview-09-2025";
+
+        // Function for exponential backoff for API calls
+        async function fetchWithBackoff(url, options, maxRetries = 5) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        if (response.status === 429 && i < maxRetries - 1) { // 429: Too Many Requests
+                            const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            continue;
+                        }
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+                    return response;
+                } catch (error) {
+                    console.error("Fetch attempt failed:", error);
+                    if (i === maxRetries - 1) throw error;
+                }
+            }
+        }
+
+        // --- AI Trip Planner Logic ---
+        async function generateTripPlan() {
+            const destination = document.getElementById('ai-destination').value;
+            const duration = document.getElementById('ai-duration').value;
+            const group = document.getElementById('ai-group').value;
+            const outputElement = document.getElementById('ai-plan-output');
+            const loader = document.getElementById('ai-loader');
+            
+            // Get API Key from the input field
+            const apiKey = document.getElementById('api-key').value;
+
+            if (!apiKey) {
+                outputElement.textContent = "தயவுசெய்து உங்கள் Google AI Studio API Key-ஐ மேலே உள்ள பெட்டியில் உள்ளிடவும்.\n(Please enter your Google AI Studio API Key in the box above.)";
+                return;
+            }
+
+            if (!destination || !duration || !group) {
+                outputElement.textContent = "தயவுசெய்து இலக்கு, கால அளவு மற்றும் குழு உறுப்பினர்களின் எண்ணிக்கையை உள்ளிடவும். (Please enter the destination, duration, and number of people).";
+                return;
+            }
+
+            // Construct the API URL with the user's key
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+
+            outputElement.textContent = '';
+            loader.style.display = 'block';
+
+            const userQuery = `ஒரு புரொபஷனல் தமிழ் டிரைவர் போல, பின்வரும் பயணத் தேவைகளுக்கு 3 நாட்களுக்கான விரிவான பயணத் திட்டத்தை (Itinerary) உருவாக்கவும். இந்தத் திட்டம் பாதுகாப்பையும் சௌகரியத்தையும் மையமாகக் கொண்டிருக்க வேண்டும். இலக்கு: ${destination}, பயணக் கால அளவு: ${duration}, பயணிகளின் எண்ணிக்கை: ${group}. தமிழ் மற்றும் ஆங்கிலத்தில் கலந்து (Tanglish) பதிலளிக்கவும்.`;
+
+            const systemPrompt = "Act as an experienced professional South Indian acting driver and trip planner. Your primary focus is creating a safe, comfortable, and highly reliable travel itinerary. Use Tamil/English (Tanglish) for friendly communication. The plan should be structured with Day 1, Day 2, etc., including estimated driving times and key attractions. Start with a confident, welcoming opening statement.";
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                tools: [{ "google_search": {} }],
+            };
+
+            try {
+                const response = await fetchWithBackoff(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text || "திட்டத்தை உருவாக்க முடியவில்லை. API Key-ஐ சரிபார்க்கவும் அல்லது பிறகு முயற்சிக்கவும். (Could not generate plan. Check API Key or try again later.)";
+                outputElement.textContent = text;
+                
+            } catch (error) {
+                outputElement.textContent = `API அழைப்பில் பிழை ஏற்பட்டது. (${error.message})`;
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+
+        // --- UI and Animation Logic ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menu.classList.toggle('open');
+            
+            if (menu.classList.contains('open')) {
+                menuIcon.style.display = 'none';
+                closeIcon.style.display = 'block';
+            } else {
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+            }
+        }
+        
+        // This function handles ALL scrolling (Desktop + Mobile)
+        function scrollToSection(targetId, event) {
+            if (event) {
+                event.preventDefault(); // Stop the '#' from jumping
+            }
+            
+            // Close mobile menu if it's open
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('open')) {
+                toggleMobileMenu();
+            }
+
+            // Wait for menu to close (if open), then scroll
+            setTimeout(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, menu.classList.contains('open') ? 300 : 0); // 300ms matches CSS, 0 if already closed
+        }
+
+
+        // Intersection Observer for scroll animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#121226]/90 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo and Title -->
+                <a href="#home" class="flex items-center space-x-3 text-xl font-black text-white hover:text-[#3b82f6]" onclick="scrollToSection('home', event)">
+                    <img src="https://i.ibb.co/1J7SGCJ5/IMG-20251026-204144.png" alt="Acting Driver Life Logo" class="w-10 h-10 rounded-full object-cover shadow-xl">
+                    <span class="font-['Montserrat'] text-2xl tracking-wider">Acting Driver Life</span>
+                </a>
+                
+                <!-- Desktop Links now use scrollToSection -->
+                <nav class="hidden md:flex space-x-8 font-bold">
+                    <a href="#services" class="text-white hover:text-[#3b82f6] transition duration-200" onclick="scrollToSection('services', event)">சேவைகள் (Services)</a>
+                    <a href="#planner" class="text-white hover:text-[#3b82f6] transition duration-200" onclick="scrollToSection('planner', event)">பயணத் திட்டம் (Trip Plan)</a>
+                    <a href="#videos" class="text-white hover:text-[#3b82f6] transition duration-200" onclick="scrollToSection('videos', event)">வீடியோக்கள் (Videos)</a>
+                    <a href="#contact" class="text-white hover:text-[#3b82f6] transition duration-200" onclick="scrollToSection('contact', event)">தொடர்புக்கு (Contact)</a>
+                    <!-- Call Button on Desktop -->
+                    <a href="tel:+917904862275" class="px-3 py-1 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-200 flex items-center space-x-1">
+                        <!-- **ICON FIX: Inline SVG for Phone** -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>இப்போதே அழையுங்கள்</span>
+                    </a>
+                </nav>
+
+                <!-- **ICON FIX: Mobile Menu Button with Inline SVGs** -->
+                <!-- This button is now 100% visible and clickable -->
+                <button class="md:hidden p-2 rounded-lg text-white hover:bg-[#3b82f6]/20 transition duration-200" onclick="toggleMobileMenu()">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 block"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Flyout uses scrollToSection -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-[#1a1a2e] z-50 shadow-2xl md:hidden overflow-y-auto pt-4">
+            <div class="flex justify-end p-4">
+                 <button class="p-2 rounded-lg text-white" onclick="toggleMobileMenu()">
+                    <!-- **ICON FIX: Inline SVG for Close (X)** -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
+                 </button>
+            </div>
+            <nav class="flex flex-col space-y-4 px-4 text-center">
+                <a href="#services" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('services', event)">சேவைகள் (Services)</a>
+                <a href="#planner" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('planner', event)">பயணத் திட்டம் (Trip Plan)</a>
+                <a href="#videos" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('videos', event)">வீடியோக்கள் (Videos)</a>
+                <a href="#contact" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('contact', event)">தொடர்புக்கு (Contact)</a>
+                 <a href="tel:+917904862275" class="mt-4 px-4 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-200 flex items-center justify-center space-x-2">
+                    <!-- **ICON FIX: Inline SVG for Phone** -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>இப்போதே அழையுங்கள்</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- 1. Hero Section (Home) -->
+    <section id="home" class="hero-bg text-center py-20 md:py-32 reveal min-h-screen flex items-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="font-['Montserrat'] text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                <span class="text-yellow-400">உங்கள் பயணம், என் பொறுப்பு:</span> <br>
+                <span class="text-white block mt-2">Professional Acting Driver Service</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                பாதுகாப்பான, சௌகரியமான Outstation & Local பயணங்களுக்காக இப்போதே அழையுங்கள்.
+            </p>
+            <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="tel:+917904862275" class="w-full sm:w-auto px-8 py-3 bg-red-600 text-white font-bold rounded-full text-lg hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center space-x-2">
+                    <!-- **ICON FIX: Inline SVG for Phone Call** -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M18.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M21.5 9a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path></svg>
+                    <span>இப்போதே அழையுங்கள்</span>
+                </a>
+                <a href="https://wa.me/917904862275?text=Hello%2C%20I%20would%20like%20to%20book%20an%20acting%20driver%20service." target="_blank" class="w-full sm:w-auto px-8 py-3 bg-green-500 text-white font-bold rounded-full text-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center space-x-2">
+                    <!-- **ICON FIX: Correct WhatsApp SVG** -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <span>WhatsApp-ல் புக் செய்</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Services Section -->
+    <section id="services" class="services-bg py-16 md:py-24 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold text-[#3b82f6] mb-4 font-['Montserrat']">
+                என் சேவைகள் (My Services)
+            </h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                பாதுகாப்பு மற்றும் குறித்த நேரத்தில் சேவை வழங்குவதே என் உறுதிமொழி.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1: Outstation -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300 border border-[#3b82f6]/50">
+                    <div class="p-3 bg-red-600 rounded-full inline-block mb-4">
+                        <!-- **ICON FIX: Inline SVG for Service 1** -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-white"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Outstation Trips (வெளியூர் பயணங்கள்)</h3>
+                    <p class="text-gray-300">
+                        நீண்ட தூரப் பயணங்களுக்குப் பாதுகாப்பான மற்றும் அனுபவமிக்க ஓட்டுநர் தேவைப்பட்டால், என்னைத் தொடர்பு கொள்ளுங்கள்.
+                    </p>
+                </div>
+
+                <!-- Service 2: Local City Drive -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300 border border-[#3b82f6]/50">
+                    <div class="p-3 bg-yellow-600 rounded-full inline-block mb-4">
+                        <!-- **ICON FIX: Inline SVG for Service 2** -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-white"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1h3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M9 17h6"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Local City Drive (உள்ளூர் ஓட்டுநர் சேவை)</h3>
+                    <p class="text-gray-300">
+                        திருமணங்கள், விழாக்கள், ஷாப்பிங் அல்லது விமான நிலையப் பயணங்களுக்கு நகரத்திற்குள் ஓட்டத் தயார்.
+                    </p>
+                </div>
+
+                <!-- Service 3: Emergency / Overnight -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300 border border-[#3b82f6]/50">
+                    <div class="p-3 bg-red-800 rounded-full inline-block mb-4">
+                         <!-- **ICON FIX: Inline SVG for Service 3** -->
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-white"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Emergency / Overnight (அவசர & இரவுப் பயணம்)</h3>
+                    <p class="text-gray-300">
+                        சோர்வாக இருக்கும்போது அல்லது இரவு நேர அவசரத் தேவைகளுக்கு உங்கள் வாகனம் ஓட்ட நம்பகமான ஓட்டுநர்.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 3. Testimonials (Customer Reviews) Section -->
+    <section id="reviews" class="bg-gray-900 py-16 md:py-24 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold text-white mb-4 font-['Montserrat']">
+                வாடிக்கையாளர் கருத்துக்கள் (5-Star Reviews)
+            </h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+                "உங்கள் பயணம் என் பொறுப்பு" - வாடிக்கையாளர்களின் வார்த்தைகளில் என் சேவை.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1: Jothi R -->
+                <div class="bg-[#1a1a2e] p-6 rounded-xl shadow-2xl border border-yellow-500/30 text-left">
+                    <p class="text-yellow-500 text-3xl mb-3">★★★★★</p>
+                    <p class="text-gray-300 italic mb-4">
+                        "His professionalism and courtesy made the experience truly enjoyable. From the start, he displayed excellent driving skills, ensuring a smooth and comfortable ride. He was punctual, respectful, and had a friendly demeanor..."
+                    </p>
+                    <p class="text-white font-bold">- Jothi R</p>
+                </div>
+
+                <!-- Review 2: Dr. S. Daffne -->
+                <div class="bg-[#1a1a2e] p-6 rounded-xl shadow-2xl border border-yellow-500/30 text-left">
+                    <p class="text-yellow-500 text-3xl mb-3">★★★★★</p>
+                    <p class="text-gray-300 italic mb-4">
+                        "Driver was very polite and took us to many places all over kanyakumari. Thank you for making our trip memorable."
+                    </p>
+                    <p class="text-white font-bold">- Dr. S. Daffne</p>
+                </div>
+
+                <!-- Review 3: Feni Joseph -->
+                <div class="bg-[#1a1a2e] p-6 rounded-xl shadow-2xl border border-yellow-500/30 text-left">
+                    <p class="text-yellow-500 text-3xl mb-3">★★★★★</p>
+                    <p class="text-gray-300 italic mb-4">
+                        "Very experienced driver and having very calm personality. Thank you Razool sir for making our day!"
+                    </p>
+                    <p class="text-white font-bold">- Feni Joseph</p>
+                </div>
+            </div>
+             <!-- Google Review Button -->
+             <div class="mt-12">
+                 <a href="https://g.page/r/Cfw8_y1r5yD_EBE/review" target="_blank" class="px-6 py-3 bg-[#3b82f6] text-white font-bold rounded-full text-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center mx-auto max-w-xs space-x-2">
+                     <!-- **ICON FIX: Inline SVG for Star** -->
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>Google-ல் Review செய்யவும்</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. AI Trip Planner Section -->
+    <section id="planner" class="bg-[#0a0a1a] py-16 md:py-24 reveal">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-[#facc15] text-center mb-4 font-['Montserrat']">
+                உங்கள் பயணத் திட்டத்தை உருவாக்குங்கள் (Plan Your Trip)
+            </h2>
+            <p class="text-xl text-gray-300 text-center mb-10 max-w-2xl mx-auto">
+                நீங்கள் செல்லும் இலக்கை உள்ளிடவும். உங்கள் தேவைக்கேற்ப பாதுகாப்பான, இலகுவான பயணத் திட்டத்தை AI உருவாக்கித் தரும்.
+            </p>
+            
+            <div class="bg-[#1a1a2e] p-6 md:p-10 rounded-xl shadow-2xl border border-gray-700">
+                <!-- API Key Input Field -->
+                <div class="mb-4">
+                    <label for="api-key" class="block text-sm font-medium text-gray-300 mb-1">Google AI API Key</label>
+                    <input type="password" id="api-key" placeholder="உங்கள் AI Studio Key-ஐ இங்கே பேஸ்ட் செய்யவும்" class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-[#3b82f6] focus:border-[#3b82f6]">
+                    <p class="text-xs text-gray-500 mt-1">Get your free key from <a href="https://aistudio.google.com/" target="_blank" class="text-blue-400 underline">Google AI Studio</a></p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                        <label for="ai-destination" class="block text-sm font-medium text-gray-300 mb-1">இலக்கு (Destination)</label>
+                        <input type="text" id="ai-destination" placeholder="ஊட்டி, கொடைக்கானல், கன்னியாகுமரி..." class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-[#3b82f6] focus:border-[#3b82f6]">
+                    </div>
+                    <div>
+                        <label for="ai-duration" class="block text-sm font-medium text-gray-300 mb-1">பயணக் கால அளவு (Duration)</label>
+                        <select id="ai-duration" class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-[#3b82f6] focus:border-[#3b82f6]">
+                             <option value="">- தேர்ந்தெடுங்கள் -</option>
+                            <option value="2 நாட்கள்">2 நாட்கள்</option>
+                            <option value="3 நாட்கள்">3 நாட்கள்</option>
+                            <option value="5 நாட்கள்">5 நாட்கள்</option>
+                            <option value="7 நாட்கள்">7 நாட்கள்</option>
+                        </select>
+                    </div>
+                    <div>
+                         <label for="ai-group" class="block text-sm font-medium text-gray-300 mb-1">பயணிகள் எண்ணிக்கை (Group Size)</label>
+                        <select id="ai-group" class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-[#3b82f6] focus:border-[#3b82f6]">
+                             <option value="">- தேர்ந்தெடுங்கள் -</option>
+                            <option value="1-2 பேர்">1-2 பேர்</option>
+                            <option value="3-4 பேர்">3-4 பேர்</option>
+                            <option value="5-8 பேர்">5-8 பேர்</option>
+                            <option value="8+ பேர்">8+ பேர்</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="generateTripPlan()" class="w-full px-4 py-3 bg-[#3b82f6] text-white font-bold rounded-lg text-lg hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-2">
+                    <div id="ai-loader" class="loader mr-2"></div>
+                    <span>திட்டத்தை உருவாக்கவும் (Generate Plan)</span>
+                </button>
+
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-white mb-3">உங்கள் பயணத் திட்டம்:</h3>
+                    <div id="ai-plan-output" class="p-4 rounded-lg text-sm overflow-auto max-h-96">
+                        உங்கள் விவரங்களை உள்ளிட்டு 'திட்டத்தை உருவாக்கவும்' பட்டனை அழுத்தவும்.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. YouTube Videos Section -->
+    <section id="videos" class="bg-black py-16 md:py-24 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold text-red-600 mb-4 font-['Montserrat']">
+                எனது YouTube பயணங்கள்
+            </h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                என் டிரைவிங் அனுபவங்கள் மற்றும் அழகான காட்சிகளைக் காணுங்கள். சப்ஸ்கிரைப் செய்ய மறக்காதீர்கள்!
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Video 1: oAiiG3H16ps (Long Video) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition duration-300">
+                    <iframe 
+                        src="https://www.youtube.com/embed/oAiiG3H16ps" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full aspect-video">
+                    </iframe>
+                </div>
+                
+                <!-- Video 2: 27lSlVkShCs (Shorts) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition duration-300">
+                     <iframe 
+                        src="https://www.youtube.com/embed/27lSlVkShCs" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full aspect-video">
+                    </iframe>
+                </div>
+
+                <!-- Video 3: rI3UvL8Fqjw (Shorts) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition duration-300">
+                     <iframe 
+                        src="https://www.youtube.com/embed/rI3UvL8Fqjw" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full aspect-video">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 6. Gallery Section (My Journeys) -->
+    <section id="gallery" class="bg-[#121226] py-16 md:py-24 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold text-white mb-4 font-['Montserrat']">
+                கேலரி (Journey Gallery)
+            </h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+                என் பயணங்களில் நான் பார்த்த சில அழகான காட்சிகள்.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
+                <!-- Gallery Photo 1 -->
+                <div class="rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:rotate-1">
+                    <img src="https://i.ibb.co/60R1Kf70/IMG-20240420-082344.jpg" alt="Gallery Photo 1" class="w-full h-auto object-cover aspect-[4/3]">
+                </div>
+                
+                <!-- Gallery Photo 2 -->
+                <div class="rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-rotate-1">
+                    <img src="https://i.ibb.co/GG3bNXC/IMG-20240421-104501.jpg" alt="Gallery Photo 2" class="w-full h-auto object-cover aspect-[4/3]">
+                </div>
+                
+                <!-- Gallery Photo 3 -->
+                <div class="rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:rotate-1">
+                    <img src="https://i.ibb.co/fzrLjT5b/IMG-20230909-115626.jpg" alt="Gallery Photo 3" class="w-full h-auto object-cover aspect-[4/3]">
+                </div>
+                
+                <!-- Gallery Photo 4 -->
+                <div class="rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-rotate-1">
+                    <img src="https://i.ibb.co/DDFynq4s/IMG-20251117-184938.jpg" alt="Gallery Photo 4" class="w-full h-auto object-cover aspect-[4/3]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. About Me Section -->
+    <section id="about" class="bg-[#0a0a1a] py-16 md:py-24 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold text-white mb-4 font-['Montserrat']">
+                எங்களைப் பற்றி (About Me)
+            </h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+                நான் ஒரு டிரைவர் மட்டுமல்ல, உங்கள் பயணத்தின் பொறுப்பாளர்.
+            </p>
+            
+            <div class="max-w-4xl mx-auto bg-[#1a1a2e] p-8 rounded-xl shadow-2xl border-l-4 border-[#3b82f6] text-left">
+                <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                    <span class="text-white font-bold">Acting Driver Life</span> என்பது வெறும் யூடியூப் சேனல் அல்ல; அது என் நிஜ அனுபவங்களின் தொகுப்பு. கடந்த பல வருடங்களாக Outstation மற்றும் Local City Trip-களில், வாடிக்கையாளர்களின் பாதுகாப்பையும், சௌகரியத்தையும் உறுதி செய்வதே எனது முதல் நோக்கம்.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    குறித்த நேரத்தில் வந்து சேருதல், வழித்தடங்களை (Routes) நன்கு அறிதல் மற்றும் சோர்வில்லாமல் ஓட்டுதல் ஆகியவை என் சேவையின் சிறப்பம்சங்கள். என் YouTube வீடியோக்கள் என் திறமையையும் பயண ஆர்வத்தையும் காட்டும். உங்கள் பயணத்தை என் பொறுப்பில் ஒப்படைக்கலாம்.
+                </p>
+            </div>
+             <!-- **ICON FIX: Social Media Follow (using Inline SVGs)** -->
+             <div class="mt-12">
+                 <h3 class="text-2xl font-bold text-white mb-4">எங்களைப் பின்தொடரவும் (Follow Us)</h3>
+                 <div class="flex justify-center space-x-6">
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@ActingDriverLife" target="_blank" class="text-gray-400 hover:text-red-600 transition duration-300 transform hover:scale-125">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.56 49.56 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><polygon points="9.5 14.5 15.5 11 9.5 7.5 9.5 14.5"></polygon></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/actingdriverlife?igsh=MTRpNTJnMnlkbWM0" target="_blank" class="text-gray-400 hover:text-pink-600 transition duration-300 transform hover:scale-125">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/share/1WYxPwvk1g/" target="_blank" class="text-gray-400 hover:text-blue-600 transition duration-300 transform hover:scale-125">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <!-- WhatsApp Channel -->
+                    <a href="https://whatsapp.com/channel/0029Vb6bQWb3mFY21Ju43T2M" target="_blank" class="text-gray-400 hover:text-green-500 transition duration-300 transform hover:scale-125">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                    <!-- **ICON FIX: Telegram SVG Added** -->
+                    <a href="https://t.me/ActingDriverLife" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300 transform hover:scale-125">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="m22 2-11 11"></path></svg>
+                    </a>
+             </div>
+         </div>
+    </section>
+
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="contact-bg py-16 reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold text-white mb-6 font-['Montserrat']">
+                உங்கள் அடுத்த பயணத்தை இப்போதே புக் செய்யுங்கள்!
+            </h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                பாதுகாப்பான பயணத்திற்கு, ஒரு புரொபஷனல் டிரைவரைத் தொடர்புகொள்ளுங்கள்.
+            </p>
+
+            <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                <!-- Call Button -->
+                <a href="tel:+917904862275" class="w-full sm:w-auto px-10 py-4 bg-red-600 text-white font-bold rounded-full text-xl hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2">
+                     <!-- **ICON FIX: Inline SVG for Phone Call** -->
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M18.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M21.5 9a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path></svg>
+                    <span>7904862275</span>
+                </a>
+                
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/917904862275?text=Hello%2C%20I%20would%20like%20to%20book%20an%20acting%20driver%20service." target="_blank" class="w-full sm:w-auto px-10 py-4 bg-green-500 text-white font-bold rounded-full text-xl hover:bg-green-600 transition duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2">
+                     <!-- **ICON FIX: Correct WhatsApp SVG** -->
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <span>WhatsApp-ல் புக் செய்</span>
+                </a>
+            </div>
+
+            <!-- Copyright and Social Links -->
+            <p class="text-gray-500 text-sm mt-16">&copy; 2025 Acting Driver Life. All rights reserved.</p>
+            <p class="text-gray-500 text-sm mt-1">உங்கள் பயணப் பொறுப்பு என் கைகளில். நம்பிக்கையுடன் பயணிக்கலாம்.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
