@@ -55,13 +55,13 @@
                 </svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu (FIXED) -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="#services" class="block text-gray-300 hover:text-white">சேவைகள்</a>
-            <a href="#about" class="block text-gray-300 hover:text-white">எங்களைப் பற்றி</a>
-            <a href="#videos" class="block text-gray-300 hover:text-white">வீடியோக்கள்</a>
-            <a href="#ai-generator" class="block text-yellow-400 hover:text-yellow-300">AI உதவி</a>
-            <a href="tel:+917904862275" class="block bg-green-600 text-center text-white font-bold py-2 px-4 rounded-lg">
+            <a href="#services" class="block text-gray-300 hover:text-white mobile-nav-link">சேவைகள்</a>
+            <a href="#about" class"block text-gray-300 hover:text-white mobile-nav-link">எங்களைப் பற்றி</a>
+            <a href="#videos" class="block text-gray-300 hover:text-white mobile-nav-link">வீடியோக்கள்</a>
+            <a href="#ai-generator" class="block text-yellow-400 hover:text-yellow-300 mobile-nav-link">AI உதவி</a>
+            <a href="tel:+917904862275" class="block bg-green-600 text-center text-white font-bold py-2 px-4 rounded-lg mobile-nav-link">
                 <!-- போன் நம்பர் அப்டேட் செய்யப்பட்டது -->
                 இப்போதே அழையுங்கள்!
             </a>
@@ -166,15 +166,19 @@
     </section>
 
 
-    <!-- Videos Section -->
+    <!-- Videos Section (Placeholders) -->
     <section id="videos" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-blue-300">எனது YouTube பயணங்கள்</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Video 1 -->
+                <!-- Video 1: Placeholder -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                     <div class="aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" <!-- உங்கள் வீடியோ லிங்கை இங்கே மாற்றவும் -->
+                        <!-- 
+                            கீழே உள்ள "dQw4w9WgXcQ" என்பதை நீக்கிவிட்டு,
+                            உங்கள் YouTube வீடியோ ID-ஐ இங்கே போடவும்.
+                        -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen
@@ -182,13 +186,17 @@
                         </iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">உங்கள் வீடியோ தலைப்பு 1</h3>
+                        <h3 class="text-xl font-semibold mb-2">மாதிரி வீடியோ தலைப்பு 1</h3>
                     </div>
                 </div>
-                <!-- Video 2 -->
+                <!-- Video 2: Placeholder -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                     <div class="aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" <!-- உங்கள் வீடியோ லிங்கை இங்கே மாற்றவும் -->
+                        <!-- 
+                            கீழே உள்ள "VIDEO_ID_HERE" என்பதை நீக்கிவிட்டு,
+                            உங்கள் YouTube வீடியோ ID-ஐ இங்கே போடவும்.
+                        -->
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen
@@ -196,7 +204,7 @@
                         </iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">உங்கள் வீடியோ தலைப்பு 2</h3>
+                        <h3 class="text-xl font-semibold mb-2">மாதிரி வீடியோ தலைப்பு 2</h3>
                     </div>
                 </div>
             </div>
@@ -242,11 +250,15 @@
     </section>
 
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section (Placeholders) -->
     <section id="gallery" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-blue-300">பயணக் காட்சிகள் (Sceneries)</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- 
+                    கீழே உள்ள "https://placehold.co/..." லிங்கை நீக்கிவிட்டு,
+                    உங்கள் சொந்த பட (image) லிங்கை இங்கே போடவும்.
+                -->
                 <img src="https://placehold.co/600x400/555/FFF?text=Scenery+1" alt="பயணக் காட்சி 1" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <img src="https://placehold.co/600x400/666/FFF?text=Scenery+2" alt="பயணக் காட்சி 2" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <img src="https://placehold.co/600x400/777/FFF?text=Scenery+3" alt="பயணக் காட்சி 3" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
@@ -255,7 +267,7 @@
         </div>
     </section>
 
-    <!-- Follow Section (UPDATED) -->
+    <!-- Follow Section (UPDATED and ICONS FIXED) -->
     <section id="follow" class="py-20 bg-gray-900 text-center">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-8 text-blue-300">தொடர்பில் இருங்கள்!</h2>
@@ -269,9 +281,172 @@
                 
                 <!-- Instagram (UPDATED) -->
                 <a href="https://www.instagram.com/actingdriverlife?igsh=MTRpNTJnMnlkbWM0" target="_blank" class="text-pink-500 hover:text-pink-400" title="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.666 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.666-4.771 4.919 4.919 1.266-.058 1.646.07 4.85-.07zm0 2.163c-3.076 0-3.444.012-4.65.068-2.618.12-3.633 1.141-3.75 3.75-.056 1.206-.068 1.574-.068 4.65s.012 3.444.068 4.65c.117 2.608 1.132 3.633 3.75 3.75 1.206.056 1.574.068 4.65.068s3.444-.012 4.65-.068c2.618-.117 3.633-1.141 3.75-3.75.056-1.206.068-1.574.068-4.65s-.012-3.444-.068-4.65c-.117-2.608-1.132-3.633-3.75-3.75-1.206-.056-1.574-.068-4.65-.068zM12 6.873c-2.835 0-5.127 2.292-5.127 5.127s2.292 5.127 5.127 5.127 5.127-2.292 5.127-5.127-2.292-5.127-5.127-5.127zm0 8.254c-1.728 0-3.127-1.399-3.127-3.127s1.399-3.127 3.127-3.127 3.127 1.399 3.127 3.127-1.399 3.127-3.127 3.127zm4.965-8.847c-.77 0-1.394.624-1.394 1.394s.624 1.394 1.394 1.394 1.394-.624 1.394-1.394-.624-1.394-1.394-1.394z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.666 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.666 4.771 4.919 4.919 1.266-.058 1.646.07 4.85-.07zm0 2.163c-3.076 0-3.444.012-4.65.068-2.618.12-3.633 1.141-3.75 3.75-.056 1.206-.068 1.574-.068 4.65s.012 3.444.068 4.65c.117 2.608 1.132 3.633 3.75 3.75 1.206.056 1.574.068 4.65.068s3.444-.012 4.65-.068c2.618-.117 3.633-1.141 3.75-3.75.056-1.206.068-1.574.068-4.65s-.012-3.444-.068-4.65c-.117-2.608-1.132-3.633-3.75-3.75-1.206-.056-1.574-.068-4.65-.068zM12 6.873c-2.835 0-5.127 2.292-5.127 5.127s2.292 5.127 5.127 5.127 5.127-2.292 5.127-5.127-2.292-5.127-5.127-5.127zm0 8.254c-1.728 0-3.127-1.399-3.127-3.127s1.399-3.127 3.127-3.127 3.127 1.399 3.127 3.127-1.399 3.127-3.127 3.127zm4.965-8.847c-.77 0-1.394.624-1.394 1.394s.624 1.394 1.394 1.394 1.394-.624 1.394-1.394-.624-1.394-1.394-1.394z"/></svg>
                 </a>
                 
-                <!-- Facebook (UPDATED) -->
+                <!-- Facebook (UPDATED and ICON FIXED) -->
                 <a href="https://www.facebook.com/share/1WYxPwvk1g/" target="_blank" class="text-blue-600 hover:text-blue-500" title="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89H8.077v-2.772h2.36V9.91c0-2.34 1.39-3.638 3.522-3.638 1.01 0 1.87.075 2.126.108v2.46h-1.44c-1.147 0-1.37.546-1.37 1.346v1.758h2.72l-.434 2.772h-2.286v7.008C18.343 21.1
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89H8.077v-2.772h2.36V9.91c0-2.34 1.39-3.638 3.522-3.638 1.01 0 1.87.075 2.126.108v2.46h-1.44c-1.147 0-1.37.546-1.37 1.346v1.758h2.72l-.434 2.772h-2.286v7.008C18.343 21.128 22 16.991 22 12z"/></svg>
+                </a>
+
+                <!-- WhatsApp (NEW and ICON FIXED) -->
+                <a href="https://whatsapp.com/channel/0029Vb6bQWb3mFY21Ju43T2M" target="_blank" class="text-green-500 hover:text-green-400" title="WhatsApp Channel">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.49 1.29 4.99L2.06 22l5.3-1.37c1.42.74 2.97 1.13 4.58 1.13h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m.01 1.63c4.56 0 8.28 3.72 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28-1.53 0-2.98-.42-4.26-1.16l-.3-.18-3.16.81.83-3.08-.2-.31c-.82-1.28-1.26-2.77-1.26-4.36.01-4.56 3.72-8.28 8.27-8.28m4.51 5.6c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.98-.14.17-.29.18-.54.06-.25-.12-1.06-.39-2.02-1.24-.75-.66-1.26-1.47-1.41-1.72-.15-.25-.02-.39.12-.51.12-.11.27-.29.4-.44.14-.15.18-.25.27-.42.09-.17.05-.31-.03-.44-.08-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.55-.42-.15-.01-.31-.01-.47-.01-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02 0 1.19.87 2.34 1 2.5.13.15 1.72 2.62 4.18 3.72 2.45 1.1 2.45.73 2.89.68.44-.05 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.11-.22-.17-.47-.3z"/></svg>
+                </a>
+
+                <!-- Telegram (NEW and ICON FIXED) -->
+                <a href="https://t.me/ActingDriverLife" target="_blank" class="text-blue-400 hover:text-blue-300" title="Telegram">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.475 2 2 6.475 2 12s4.475 10 10 10 10-4.475 10-10S17.525 2 12 2zm4.94 7.95l-1.424 6.72c-.1.46-.4.58-.75.36l-2.22-1.63l-1.07 1.03c-.12.12-.23.24-.4.24l.16-2.28l4.07-3.67c.17-.15-.02-.23-.24-.09l-5.04 3.22l-2.18-.68c-.46-.14-.47-.44.1-.56l8.52-3.21c.38-.14.7.13.6.59z"/></svg>
+                </a>
+
+            </div>
+            <p class="text-gray-400">எனது <a href="#" class="text-blue-400 hover:underline">Google My Business</a> சுயவிவரத்தையும் பாருங்கள்!</p> <!-- உங்கள் GMB link -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-6">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 Acting Driver Life. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        </div>
+    </footer>
+
+    <!-- Hidden textarea for clipboard operations -->
+    <textarea id="copy-text-area"></textarea>
+
+    <!-- JAVASCRIPT SECTION -->
+    <script>
+        // --- Mobile Menu Toggle (FIXED) ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // Toggle menu visibility
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- (NEW) Close menu when a link is clicked ---
+        // Get all links inside the mobile menu
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link'); // Correct selector
+        
+        // Add click event listener to each link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // When a link is clicked, hide the menu
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Gemini AI Feature Script ---
+        const generateBtn = document.getElementById('generate-btn');
+        const btnText = document.getElementById('btn-text');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const promptInput = document.getElementById('ai-prompt');
+        const resultContainer = document.getElementById('ai-result-container');
+        const aiResult = document.getElementById('ai-result');
+        const aiError = document.getElementById('ai-error');
+        const copyBtn = document.getElementById('copy-btn');
+        const copyTextArea = document.getElementById('copy-text-area');
+
+        // System instruction for the model
+        const systemPrompt = `Act as a friendly social media manager for a YouTube channel and business called 'Acting Driver Life'. The user is an acting driver who also creates vlogs. Your goal is to create engaging posts for Google Business, YouTube descriptions, etc. You must respond in the same language as the user's prompt (e.g., if the prompt is in Tamil, respond in Tamil). Keep responses concise, friendly, and suitable for social media.`;
+        
+        async function callGeminiAPI(userQuery) {
+            const apiKey = ""; // API key will be provided by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            btnText.textContent = 'உருவாகிறது...';
+            loadingSpinner.classList.remove('hidden');
+            generateBtn.disabled = true;
+            aiError.classList.add('hidden');
+            resultContainer.classList.add('hidden');
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                let response;
+                let retries = 0;
+                const maxRetries = 5;
+                let delay = 1000; // 1 second
+
+                while (retries < maxRetries) {
+                    response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) break;
+
+                    if (response.status === 429 || response.status >= 500) {
+                        retries++;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    } else {
+                        throw new Error(`API பிழை: ${response.statusText}`);
+                    }
+                }
+                
+                if (!response.ok) {
+                     throw new Error(`API கோரிக்கை ${maxRetries} முயற்சிகளுக்குப் பிறகும் தோல்வியடைந்தது.`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    aiResult.textContent = candidate.content.parts[0].text;
+                    resultContainer.classList.remove('hidden');
+                } else {
+                    throw new Error("API-யிடமிருந்து சரியான பதில் வரவில்லை.");
+                }
+
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                aiError.textContent = "மன்னிக்கவும், ஒரு பிழை ஏற்பட்டுவிட்டது. மீண்டும் முயற்சிக்கவும். (Error: " + error.message + ")";
+                aiError.classList.remove('hidden');
+            } finally {
+                btnText.textContent = 'உருவாக்கு (Generate)';
+                loadingSpinner.classList.add('hidden');
+                generateBtn.disabled = false;
+            }
+        }
+
+        generateBtn.addEventListener('click', () => {
+            const query = promptInput.value.trim();
+            if (query) {
+                callGeminiAPI(query);
+            } else {
+                aiError.textContent = "தயவுசெய்து ஒரு கேள்வியை டைப் செய்யவும்.";
+                aiError.classList.remove('hidden');
+            }
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = aiResult.textContent;
+            copyTextArea.value = textToCopy;
+            copyTextArea.select();
+            
+            try {
+                document.execCommand('copy');
+                copyBtn.textContent = 'காப்பி செய்யப்பட்டது!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'காப்பி செய் (Copy)';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                copyBtn.textContent = 'Error Copying';
+                 setTimeout(() => {
+                    copyBtn.textContent = 'காப்பி செய் (Copy)';
+                }, 2000);
+            }
+        });
+    </script>
+
+</body>
+</html>
