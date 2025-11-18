@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- **CACHE FIX: Add a version number to force browser to reload** -->
-    <title>Acting Driver Life | உங்கள் பயணம், என் பொறுப்பு v1.2</title>
+    <!-- **CACHE FIX: Version 2.0** -->
+    <title>Acting Driver Life | உங்கள் பயணம், என் பொறுப்பு v2.0</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -52,12 +52,14 @@
         }
 
         /* Style for the AI generated output area */
-        #ai-output {
+        #ai-plan-output {
             min-height: 150px;
             white-space: pre-wrap;
             background-color: #1a1a2e;
             color: #d1d5db;
             border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            border-radius: 0 0 8px 8px;
         }
         
         /* Styles for the loading spinner */
@@ -80,9 +82,22 @@
         #mobile-menu {
             transition: all 0.3s ease-in-out;
             transform: translateX(100%);
+            background-color: #1a1a2e; /* Solid background for clarity */
         }
         #mobile-menu.open {
             transform: translateX(0);
+        }
+        
+        /* Ensure mobile links are visible */
+        .mobile-link {
+            color: #ffffff; 
+            padding: 1rem;
+            display: block;
+            border-bottom: 1px solid #333;
+        }
+        .mobile-link:hover {
+            color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
         }
     </style>
 </head>
@@ -120,10 +135,10 @@
             const duration = document.getElementById('ai-duration').value;
             const group = document.getElementById('ai-group').value;
             const outputElement = document.getElementById('ai-plan-output');
-            const loader = document.getElementById('ai-loader');
+            const loader = document.getElementById('ai-loader-planner');
             
             // Get API Key from the input field
-            const apiKey = document.getElementById('api-key').value;
+            const apiKey = document.getElementById('api-key-planner').value;
 
             if (!apiKey) {
                 outputElement.textContent = "தயவுசெய்து உங்கள் Google AI Studio API Key-ஐ மேலே உள்ள பெட்டியில் உள்ளிடவும்.\n(Please enter your Google AI Studio API Key in the box above.)";
@@ -141,7 +156,7 @@
             outputElement.textContent = '';
             loader.style.display = 'block';
 
-            const userQuery = `ஒரு புரொபஷனல் தமிழ் டிரைவர் போல, பின்வரும் பயணத் தேவைகளுக்கு 3 நாட்களுக்கான விரிவான பயணத் திட்டத்தை (Itinerary) உருவாக்கவும். இந்தத் திட்டம் பாதுகாப்பையும் சௌகரியத்தையும் மையமாகக் கொண்டிருக்க வேண்டும். இலக்கு: ${destination}, பயணக் கால அளவு: ${duration}, பயணிகளின் எண்ணிக்கை: ${group}. தமிழ் மற்றும் ஆங்கிலத்தில் கலந்து (Tanglish) பதிலளிக்கவும்.`;
+            const userQuery = `ஒரு புரொபஷனல் தமிழ் டிரைவர் போல, பின்வரும் பயணத் தேவைகளுக்கு விரிவான பயணத் திட்டத்தை (Itinerary) உருவாக்கவும். இந்தத் திட்டம் பாதுகாப்பையும் சௌகரியத்தையும் மையமாகக் கொண்டிருக்க வேண்டும். இலக்கு: ${destination}, பயணக் கால அளவு: ${duration}, பயணிகளின் எண்ணிக்கை: ${group}. தமிழ் மற்றும் ஆங்கிலத்தில் கலந்து (Tanglish) பதிலளிக்கவும்.`;
 
             const systemPrompt = "Act as an experienced professional South Indian acting driver and trip planner. Your primary focus is creating a safe, comfortable, and highly reliable travel itinerary. Use Tamil/English (Tanglish) for friendly communication. The plan should be structured with Day 1, Day 2, etc., including estimated driving times and key attractions. Start with a confident, welcoming opening statement.";
 
@@ -168,7 +183,6 @@
                 loader.style.display = 'none';
             }
         }
-
 
         // --- UI and Animation Logic ---
         function toggleMobileMenu() {
@@ -251,14 +265,13 @@
                     <a href="#contact" class="text-white hover:text-[#3b82f6] transition duration-200" onclick="scrollToSection('contact', event)">தொடர்புக்கு (Contact)</a>
                     <!-- Call Button on Desktop -->
                     <a href="tel:+917904862275" class="px-3 py-1 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-200 flex items-center space-x-1">
-                        <!-- **ICON FIX: Inline SVG for Phone** -->
+                        <!-- ICON FIX: Inline SVG for Phone -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         <span>இப்போதே அழையுங்கள்</span>
                     </a>
                 </nav>
 
-                <!-- **ICON FIX: Mobile Menu Button with Inline SVGs** -->
-                <!-- This button is now 100% visible and clickable -->
+                <!-- ICON FIX: Mobile Menu Button with Inline SVGs -->
                 <button class="md:hidden p-2 rounded-lg text-white hover:bg-[#3b82f6]/20 transition duration-200" onclick="toggleMobileMenu()">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 block"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
                     <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
@@ -267,20 +280,20 @@
         </div>
 
         <!-- Mobile Menu Flyout uses scrollToSection -->
-        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-[#1a1a2e] z-50 shadow-2xl md:hidden overflow-y-auto pt-4">
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 z-50 shadow-2xl md:hidden overflow-y-auto pt-4">
             <div class="flex justify-end p-4">
                  <button class="p-2 rounded-lg text-white" onclick="toggleMobileMenu()">
-                    <!-- **ICON FIX: Inline SVG for Close (X)** -->
+                    <!-- ICON FIX: Inline SVG for Close (X) -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
                  </button>
             </div>
-            <nav class="flex flex-col space-y-4 px-4 text-center">
-                <a href="#services" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('services', event)">சேவைகள் (Services)</a>
-                <a href="#planner" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('planner', event)">பயணத் திட்டம் (Trip Plan)</a>
-                <a href="#videos" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('videos', event)">வீடியோக்கள் (Videos)</a>
-                <a href="#contact" class="text-white hover:text-[#3b82f6] text-lg py-2 border-b border-[#333]" onclick="scrollToSection('contact', event)">தொடர்புக்கு (Contact)</a>
+            <nav class="flex flex-col space-y-2 px-4 text-center">
+                <a href="#services" class="mobile-link" onclick="scrollToSection('services', event)">சேவைகள் (Services)</a>
+                <a href="#planner" class="mobile-link" onclick="scrollToSection('planner', event)">பயணத் திட்டம் (Trip Plan)</a>
+                <a href="#videos" class="mobile-link" onclick="scrollToSection('videos', event)">வீடியோக்கள் (Videos)</a>
+                <a href="#contact" class="mobile-link" onclick="scrollToSection('contact', event)">தொடர்புக்கு (Contact)</a>
                  <a href="tel:+917904862275" class="mt-4 px-4 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-200 flex items-center justify-center space-x-2">
-                    <!-- **ICON FIX: Inline SVG for Phone** -->
+                    <!-- ICON FIX: Inline SVG for Phone -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     <span>இப்போதே அழையுங்கள்</span>
                 </a>
@@ -301,12 +314,12 @@
             </p>
             <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <a href="tel:+917904862275" class="w-full sm:w-auto px-8 py-3 bg-red-600 text-white font-bold rounded-full text-lg hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center space-x-2">
-                    <!-- **ICON FIX: Inline SVG for Phone Call** -->
+                    <!-- ICON FIX: Inline SVG for Phone Call -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M18.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M21.5 9a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path></svg>
                     <span>இப்போதே அழையுங்கள்</span>
                 </a>
                 <a href="https://wa.me/917904862275?text=Hello%2C%20I%20would%20like%20to%20book%20an%20acting%20driver%20service." target="_blank" class="w-full sm:w-auto px-8 py-3 bg-green-500 text-white font-bold rounded-full text-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center space-x-2">
-                    <!-- **ICON FIX: Correct WhatsApp SVG** -->
+                    <!-- ICON FIX: Correct WhatsApp SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     <span>WhatsApp-ல் புக் செய்</span>
                 </a>
@@ -328,7 +341,7 @@
                 <!-- Service 1: Outstation -->
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300 border border-[#3b82f6]/50">
                     <div class="p-3 bg-red-600 rounded-full inline-block mb-4">
-                        <!-- **ICON FIX: Inline SVG for Service 1** -->
+                        <!-- ICON FIX: Inline SVG for Service 1 -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-white"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Outstation Trips (வெளியூர் பயணங்கள்)</h3>
@@ -340,7 +353,7 @@
                 <!-- Service 2: Local City Drive -->
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300 border border-[#3b82f6]/50">
                     <div class="p-3 bg-yellow-600 rounded-full inline-block mb-4">
-                        <!-- **ICON FIX: Inline SVG for Service 2** -->
+                        <!-- ICON FIX: Inline SVG for Service 2 -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-white"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1h3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M9 17h6"></path></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Local City Drive (உள்ளூர் ஓட்டுநர் சேவை)</h3>
@@ -352,7 +365,7 @@
                 <!-- Service 3: Emergency / Overnight -->
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl transform hover:scale-105 transition duration-300 border border-[#3b82f6]/50">
                     <div class="p-3 bg-red-800 rounded-full inline-block mb-4">
-                         <!-- **ICON FIX: Inline SVG for Service 3** -->
+                         <!-- ICON FIX: Inline SVG for Service 3 -->
                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-white"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Emergency / Overnight (அவசர & இரவுப் பயணம்)</h3>
@@ -405,7 +418,7 @@
              <!-- Google Review Button -->
              <div class="mt-12">
                  <a href="https://g.page/r/Cfw8_y1r5yD_EBE/review" target="_blank" class="px-6 py-3 bg-[#3b82f6] text-white font-bold rounded-full text-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center mx-auto max-w-xs space-x-2">
-                     <!-- **ICON FIX: Inline SVG for Star** -->
+                     <!-- ICON FIX: Inline SVG for Star -->
                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     <span>Google-ல் Review செய்யவும்</span>
                 </a>
@@ -426,15 +439,15 @@
             <div class="bg-[#1a1a2e] p-6 md:p-10 rounded-xl shadow-2xl border border-gray-700">
                 <!-- API Key Input Field -->
                 <div class="mb-4">
-                    <label for="api-key" class="block text-sm font-medium text-gray-300 mb-1">Google AI API Key</label>
-                    <input type="password" id="api-key" placeholder="உங்கள் AI Studio Key-ஐ இங்கே பேஸ்ட் செய்யவும்" class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-[#3b82f6] focus:border-[#3b82f6]">
+                    <label for="api-key-planner" class="block text-sm font-medium text-gray-300 mb-1">Google AI API Key</label>
+                    <input type="password" id="api-key-planner" placeholder="உங்கள் AI Studio Key-ஐ இங்கே பேஸ்ட் செய்யவும்" class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-[#3b82f6] focus:border-[#3b82f6]">
                     <p class="text-xs text-gray-500 mt-1">Get your free key from <a href="https://aistudio.google.com/" target="_blank" class="text-blue-400 underline">Google AI Studio</a></p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div>
                         <label for="ai-destination" class="block text-sm font-medium text-gray-300 mb-1">இலக்கு (Destination)</label>
-                        <input type="text" id="ai-destination" placeholder="ஊட்டி, கொடைக்கானல், கன்னியாகுமரி..." class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-[#3b82f6] focus:border-[#3b82f6]">
+                        <input type="text" id="ai-destination" placeholder="ஊட்டி, கொடைக்கானல்..." class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-[#3b82f6] focus:border-[#3b82f6]">
                     </div>
                     <div>
                         <label for="ai-duration" class="block text-sm font-medium text-gray-300 mb-1">பயணக் கால அளவு (Duration)</label>
@@ -447,7 +460,7 @@
                         </select>
                     </div>
                     <div>
-                         <label for="ai-group" class="block text-sm font-medium text-gray-300 mb-1">பயணிகள் எண்ணிக்கை (Group Size)</label>
+                         <label for="ai-group" class="block text-sm font-medium text-gray-300 mb-1">பயணிகள் (Group Size)</label>
                         <select id="ai-group" class="w-full px-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-[#3b82f6] focus:border-[#3b82f6]">
                              <option value="">- தேர்ந்தெடுங்கள் -</option>
                             <option value="1-2 பேர்">1-2 பேர்</option>
@@ -459,7 +472,7 @@
                 </div>
 
                 <button onclick="generateTripPlan()" class="w-full px-4 py-3 bg-[#3b82f6] text-white font-bold rounded-lg text-lg hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-2">
-                    <div id="ai-loader" class="loader mr-2"></div>
+                    <div id="ai-loader-planner" class="loader"></div>
                     <span>திட்டத்தை உருவாக்கவும் (Generate Plan)</span>
                 </button>
 
@@ -472,7 +485,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- 5. YouTube Videos Section -->
     <section id="videos" class="bg-black py-16 md:py-24 reveal">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -575,7 +588,7 @@
                     குறித்த நேரத்தில் வந்து சேருதல், வழித்தடங்களை (Routes) நன்கு அறிதல் மற்றும் சோர்வில்லாமல் ஓட்டுதல் ஆகியவை என் சேவையின் சிறப்பம்சங்கள். என் YouTube வீடியோக்கள் என் திறமையையும் பயண ஆர்வத்தையும் காட்டும். உங்கள் பயணத்தை என் பொறுப்பில் ஒப்படைக்கலாம்.
                 </p>
             </div>
-             <!-- **ICON FIX: Social Media Follow (using Inline SVGs)** -->
+             <!-- ICON FIX: Social Media Follow (using Inline SVGs) -->
              <div class="mt-12">
                  <h3 class="text-2xl font-bold text-white mb-4">எங்களைப் பின்தொடரவும் (Follow Us)</h3>
                  <div class="flex justify-center space-x-6">
@@ -595,7 +608,7 @@
                     <a href="https://whatsapp.com/channel/0029Vb6bQWb3mFY21Ju43T2M" target="_blank" class="text-gray-400 hover:text-green-500 transition duration-300 transform hover:scale-125">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     </a>
-                    <!-- **ICON FIX: Telegram SVG Added** -->
+                    <!-- ICON FIX: Telegram SVG Added -->
                     <a href="https://t.me/ActingDriverLife" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300 transform hover:scale-125">
                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="m22 2-11 11"></path></svg>
                     </a>
@@ -617,14 +630,14 @@
             <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
                 <!-- Call Button -->
                 <a href="tel:+917904862275" class="w-full sm:w-auto px-10 py-4 bg-red-600 text-white font-bold rounded-full text-xl hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2">
-                     <!-- **ICON FIX: Inline SVG for Phone Call** -->
+                     <!-- ICON FIX: Inline SVG for Phone Call -->
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-4.22 19.5 19.5 0 0 1-3.67-4.22A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M18.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path><path d="M21.5 9a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path></svg>
                     <span>7904862275</span>
                 </a>
                 
                 <!-- WhatsApp Button -->
                 <a href="https://wa.me/917904862275?text=Hello%2C%20I%20would%20like%20to%20book%20an%20acting%20driver%20service." target="_blank" class="w-full sm:w-auto px-10 py-4 bg-green-500 text-white font-bold rounded-full text-xl hover:bg-green-600 transition duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2">
-                     <!-- **ICON FIX: Correct WhatsApp SVG** -->
+                     <!-- ICON FIX: Correct WhatsApp SVG -->
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     <span>WhatsApp-ல் புக் செய்</span>
                 </a>
